@@ -115,21 +115,6 @@
   #timer { top: 15px; right: 15px; }
   #levelDisplay { bottom: 15px; left: 15px; }
 
-  #highScoreDisplay {
-    position: absolute;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 22px;
-    font-weight: 700;
-    padding: 14px 28px;
-    border-radius: 16px;
-    background-color: #ffeb3b;
-    color: #333;
-    text-align: center;
-    box-shadow: 0 0 15px gold, 0 0 35px #ffe54c;
-    animation: pulse 2s infinite;
-  }
 
   @keyframes pulse {
     0%, 100% { transform: translateX(-50%) scale(1); }
@@ -176,47 +161,7 @@
     box-shadow: 0 7px 20px rgba(0,0,0,0.25);
   }
 
-  /* Leaderboard */
-  #leaderboard {
-    display: none;
-    margin-top: 30px;
-    width: 90%;
-    max-width: 600px;
-    background: rgba(255,255,255,0.95);
-    padding: 20px 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  }
-
-  #leaderboard h2 {
-    text-align: center;
-    margin-bottom: 15px;
-    color: #333;
-  }
-
-  #leaderboard ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  #leaderboard li {
-    font-size: 18px;
-    margin-bottom: 10px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    background: rgba(240,240,240,0.7);
-  }
-
-  footer {
-    font-size: 12px;
-    color: #666;
-    margin-top: 20px;
-  }
-
-</style>
-</head>
-<body>
-
+ 
 <h1>Catch the Circle</h1>
 
 <div id="landingPage">
@@ -404,15 +349,6 @@ function saveScore(score, name) {
   updateLeaderboard();
 }
 
-function updateLeaderboard() {
-  let scores = JSON.parse(localStorage.getItem('leaderboardScores') || '[]');
-  leaderboardList.innerHTML = '';
-  scores.forEach((s,i) => {
-    let li = document.createElement('li');
-    li.textContent = `${i+1}. ${s.name} - ${s.score}`;
-    leaderboardList.appendChild(li);
-  });
-}
 
 </script>
 
